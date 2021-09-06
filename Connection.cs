@@ -1,11 +1,10 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
-using System.Data;
 using System.Threading.Tasks;
 
 namespace Tested_SQL
 {
-    class Program
+    class Connection
     {
         static async Task Main(string[] args)
         {
