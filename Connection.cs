@@ -13,6 +13,7 @@ namespace Tested_SQL
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 await connection.OpenAsync();
+                Console.WriteLine(connection.ClientConnectionId); //Pool
                 Console.WriteLine("Connection is open");
                 //Output of connection information
                 Console.WriteLine("Connection Properties:");
@@ -22,6 +23,13 @@ namespace Tested_SQL
                 Console.WriteLine($"\tServer version: {connection.ServerVersion}");
                 Console.WriteLine($"\tState: {connection.State}");
                 Console.WriteLine($"\tWorkStationID: {connection.WorkstationId}");
+                SqlConnection.ClearPool(connection); //Pool
+            }
+            //SqlConnection.ClearAllPools();
+            using (SqlConnection connection = new SqlConnection(connectionString)) //Two separate connections are created
+            {
+                await connection.OpenAsync();
+                Console.WriteLine(connection.ClientConnectionId);
             }
             Console.WriteLine("Connection is close...");
             Console.WriteLine("The program has finished working");

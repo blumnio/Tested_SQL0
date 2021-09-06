@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TestedPool\**" />
+    <EmbeddedResource Remove="TestedPool\**" />
+    <None Remove="TestedPool\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="PoolB.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="3.0.0" />
   </ItemGroup>
 
